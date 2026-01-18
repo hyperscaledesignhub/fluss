@@ -298,9 +298,3 @@ terraform destroy
 
 **Warning:** This will delete the EKS cluster, VPC, and all associated resources.
 
-## Additional Resources
-
-- [Deployment Instructions](../DEPLOYMENT_INSTRUCTIONS.md)
-- [Monitoring Guide](../high-infra/MONITORING.md)
-- [Scripts Documentation](../high-infra/k8s/scripts/SCRIPTS.md)
-
