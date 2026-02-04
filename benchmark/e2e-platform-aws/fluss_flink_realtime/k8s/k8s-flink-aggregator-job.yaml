@@ -63,7 +63,7 @@ spec:
         args:
         - -cp
         - /app/fluss-flink-realtime-demo.jar
-        - org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob
+        - org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob
         - --bootstrap
         - coordinator-server-hs.default.svc.cluster.local:9124
         - --database

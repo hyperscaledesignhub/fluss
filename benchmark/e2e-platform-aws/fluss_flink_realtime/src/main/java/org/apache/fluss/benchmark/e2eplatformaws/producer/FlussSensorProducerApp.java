@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package org.apache.fluss.benchmarks.producer;
+package org.apache.fluss.benchmark.e2eplatformaws.producer;
 
-import org.apache.fluss.benchmarks.model.SensorData;
-import org.apache.fluss.benchmarks.model.SensorData.MetaData;
+import org.apache.fluss.benchmark.e2eplatformaws.model.SensorData;
+import org.apache.fluss.benchmark.e2eplatformaws.model.SensorData.MetaData;
 import org.apache.fluss.client.Connection;
 import org.apache.fluss.client.ConnectionFactory;
 import org.apache.fluss.client.admin.Admin;

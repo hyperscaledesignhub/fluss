@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.fluss.benchmarks.producer;
+package org.apache.fluss.benchmark.e2eplatformaws.producer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

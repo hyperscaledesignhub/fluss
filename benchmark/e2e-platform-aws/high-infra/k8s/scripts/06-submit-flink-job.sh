@@ -120,7 +120,7 @@ JOB_RESPONSE=\$(curl -s -X POST \
     \"http://localhost:8081/v1/jars/\${JAR_ID}/run\" \
     -H \"Content-Type: application/json\" \
     -d '{
-        \"entryClass\": \"org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob\",
+        \"entryClass\": \"org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob\",
         \"programArgs\": \"--bootstrap coordinator-server-hs.${NAMESPACE}.svc.cluster.local:9124 --database iot --table sensor_readings --window-minutes 1\",
         \"parallelism\": 192
     }')

@@ -83,12 +83,12 @@ flink-1.20.3/bin/sql-client.sh -e "CREATE CATALOG fluss WITH ('type'='fluss','bo
 ### List databases / tables
 ```
 java -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9123
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9123
 ```
 Optional single database:
 ```
 java -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9123 iot
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9123 iot
 ```
 
 ### Peek change log records
@@ -96,7 +96,7 @@ java -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.j
 ```
 java --add-opens=java.base/java.nio=ALL-UNNAMED \
   -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussTableLogPeek localhost:9123 iot sensor_readings 5
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussTableLogPeek localhost:9123 iot sensor_readings 5
 ```
 (Change `5` to print more/less records.)
 
@@ -105,7 +105,7 @@ java --add-opens=java.base/java.nio=ALL-UNNAMED \
 ```
 java --add-opens=java.base/java.nio=ALL-UNNAMED \
   -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussPrimaryKeySnapshotPeek localhost:9123 iot sensor_readings 5
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussPrimaryKeySnapshotPeek localhost:9123 iot sensor_readings 5
 ```
 (Reads current table snapshot; only supports non-partitioned primary-key tables.)
 
@@ -114,7 +114,7 @@ java --add-opens=java.base/java.nio=ALL-UNNAMED \
 (Requires Flink cluster running in `flink-1.20.3`)
 ```
 flink-1.20.3/bin/flink run \
-  -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+  -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
   demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
   --bootstrap localhost:9123 --database iot --table sensor_readings --window-minutes 1
 ```

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.fluss.benchmarks.flink;
+package org.apache.fluss.benchmark.e2eplatformaws.flink;
 
 import org.apache.flink.metrics.Metric;
 import org.apache.flink.metrics.MetricGroup;

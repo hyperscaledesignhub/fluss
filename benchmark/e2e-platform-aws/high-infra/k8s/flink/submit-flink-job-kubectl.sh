@@ -48,7 +48,7 @@ echo ""
 
 # Option 1: If JAR is already in the pod
 # kubectl exec -n ${NAMESPACE} ${JOBMANAGER_POD} -- /opt/flink/bin/flink run \
-#     -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+#     -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
 #     /tmp/fluss-flink-realtime-demo.jar \
 #     --bootstrap coordinator-server-hs.${NAMESPACE}.svc.cluster.local:9124 \
 #     --database iot \
@@ -92,6 +92,6 @@ echo ""
 echo "3. Submit job:"
 echo "   curl -X POST http://localhost:8081/v1/jars/<jar-id>/run \\"
 echo "     -H 'Content-Type: application/json' \\"
-echo "     -d '{\"entryClass\":\"org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob\",\"programArgs\":\"--bootstrap coordinator-server-hs.${NAMESPACE}.svc.cluster.local:9124 --database iot --table sensor_readings --window-minutes 1\",\"parallelism\":2}'"
+echo "     -d '{\"entryClass\":\"org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob\",\"programArgs\":\"--bootstrap coordinator-server-hs.${NAMESPACE}.svc.cluster.local:9124 --database iot --table sensor_readings --window-minutes 1\",\"parallelism\":2}'"
 echo ""
 

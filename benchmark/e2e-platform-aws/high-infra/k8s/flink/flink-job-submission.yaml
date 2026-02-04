@@ -141,7 +141,7 @@ spec:
               # Method 1: Use Flink CLI (requires JAR in image or mounted)
               # /opt/flink/bin/flink run \
               #   -m flink-jobmanager:6123 \
-              #   -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+              #   -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
               #   /tmp/fluss-flink-realtime-demo.jar \
               #   --bootstrap coordinator-server-hs.fluss.svc.cluster.local:9124 \
               #   --database iot \
@@ -172,7 +172,7 @@ spec:
                 "http://${JOBMANAGER}/v1/jars/${JAR_ID}/run" \
                 -H "Content-Type: application/json" \
                 -d '{
-                  "entryClass": "org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob",
+                  "entryClass": "org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob",
                   "programArgs": "--bootstrap coordinator-server-hs.fluss.svc.cluster.local:9124 --database iot --table sensor_readings --window-minutes 1",
                   "parallelism": 2,
                   "savepointPath": null,

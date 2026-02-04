@@ -108,7 +108,7 @@ spec:
                    --add-opens=java.base/java.nio=ALL-UNNAMED \
                    --add-opens=java.base/java.time=ALL-UNNAMED \
                    -cp /opt/flink/usrlib/fluss-flink-realtime-demo.jar \
-                   org.apache.fluss.benchmarks.producer.FlussSensorProducerAppMultiInstance \
+                   org.apache.fluss.benchmark.e2eplatformaws.producer.FlussSensorProducerAppMultiInstance \
                    --bootstrap "$BOOTSTRAP" \
                    --database "$DATABASE" \
                    --table "$TABLE" \

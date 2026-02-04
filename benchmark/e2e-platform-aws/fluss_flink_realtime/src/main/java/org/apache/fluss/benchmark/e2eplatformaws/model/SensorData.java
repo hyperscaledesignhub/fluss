@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.fluss.benchmarks.model;
+package org.apache.fluss.benchmark.e2eplatformaws.model;
 
 import java.io.Serializable;
 import java.time.Instant;

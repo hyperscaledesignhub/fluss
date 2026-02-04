@@ -144,7 +144,7 @@ spec:
             - --add-opens=java.base/java.time=ALL-UNNAMED
             - -cp
             - /opt/flink/usrlib/fluss-flink-realtime-demo.jar
-            - org.apache.fluss.benchmarks.inspect.FlussTableBucketChecker
+            - org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussTableBucketChecker
             - ${BOOTSTRAP}
             - ${DATABASE}
             - ${TABLE}
@@ -182,7 +182,7 @@ EOF
             --add-opens=java.base/java.nio=ALL-UNNAMED \
             --add-opens=java.base/java.time=ALL-UNNAMED \
             -cp /opt/flink/usrlib/fluss-flink-realtime-demo.jar \
-            org.apache.fluss.benchmarks.inspect.FlussTableBucketChecker \
+            org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussTableBucketChecker \
             "${BOOTSTRAP}" "${DATABASE}" "${TABLE}"
     fi
 else
@@ -205,7 +205,7 @@ else
         --add-opens=java.base/java.nio=ALL-UNNAMED \
         --add-opens=java.base/java.time=ALL-UNNAMED \
         -cp "${DEMO_JAR}" \
-        org.apache.fluss.benchmarks.inspect.FlussTableBucketChecker \
+        org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussTableBucketChecker \
         "${BOOTSTRAP}" "${DATABASE}" "${TABLE}"
 fi
 

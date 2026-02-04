@@ -74,7 +74,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-     org.apache.fluss.benchmarks.setup.CreateTableWithBuckets \
+     org.apache.fluss.benchmark.e2eplatformaws.setup.CreateTableWithBuckets \
      localhost:9123 iot sensor_readings 48 true
 ```
 
@@ -87,7 +87,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-     org.apache.fluss.benchmarks.producer.FlussSensorProducerAppMultiInstance \
+     org.apache.fluss.benchmark.e2eplatformaws.producer.FlussSensorProducerAppMultiInstance \
      --bootstrap localhost:9123 \
      --database iot \
      --table sensor_readings \
@@ -109,7 +109,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-     org.apache.fluss.benchmarks.producer.FlussSensorProducerAppMultiInstance \
+     org.apache.fluss.benchmark.e2eplatformaws.producer.FlussSensorProducerAppMultiInstance \
      --bootstrap localhost:9123 \
      --database iot \
      --table sensor_readings \
@@ -149,7 +149,7 @@ cd /Users/vijayabhaskarv/IOT/FLUSS/flink-1.20.3
 
 # Submit Flink job
 ./bin/flink run \
-    -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+    -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
     /Users/vijayabhaskarv/IOT/FLUSS/demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
     --bootstrap localhost:9123 \
     --database iot \
@@ -170,7 +170,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-     org.apache.fluss.benchmarks.inspect.FlussTableLogPeek localhost:9123 iot sensor_readings 10
+     org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussTableLogPeek localhost:9123 iot sensor_readings 10
 ```
 
 **Check Flink job output:**

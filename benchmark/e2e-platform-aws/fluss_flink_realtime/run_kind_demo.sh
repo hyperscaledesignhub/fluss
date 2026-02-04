@@ -78,7 +78,7 @@ sleep 3
 # Verify Fluss is accessible
 echo -e "\n${YELLOW}[3/6] Verifying Fluss connectivity...${NC}"
 if ! java -cp "${DEMO_JAR}" \
-    org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9124 >/dev/null 2>&1; then
+    org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9124 >/dev/null 2>&1; then
     echo -e "${RED}ERROR: Cannot connect to Fluss on localhost:9124${NC}"
     echo -e "${YELLOW}Check Fluss pods: kubectl get pods${NC}"
     kill $PORT_FORWARD_PID 2>/dev/null || true
@@ -123,7 +123,7 @@ sleep 5
 echo -e "\n${YELLOW}[6/6] Submitting Flink aggregation job...${NC}"
 FLINK_LOG="${WORKDIR}/flink-job.log"
 "${FLINK_HOME}/bin/flink run" \
-    -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+    -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
     "${DEMO_JAR}" \
     --bootstrap localhost:9124 \
     --database iot \
@@ -164,7 +164,7 @@ echo -e "  Coordinator logs: kubectl logs -l app=fluss-coordinator --tail=50 -f"
 echo -e "  Tablet server logs: kubectl logs -l app=fluss-tablet-server --tail=50 -f"
 echo -e ""
 echo -e "Inspect Fluss data:"
-echo -e "  java -cp ${DEMO_JAR} org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9124"
+echo -e "  java -cp ${DEMO_JAR} org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9124"
 echo -e ""
 echo -e "${YELLOW}To stop everything:${NC}"
 echo -e "  1. kill ${PRODUCER_PID}"

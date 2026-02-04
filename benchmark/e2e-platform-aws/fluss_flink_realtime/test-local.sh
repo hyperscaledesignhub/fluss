@@ -97,7 +97,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp "${JAR_PATH}" \
-     org.apache.fluss.benchmarks.setup.CreateTableWithBuckets \
+     org.apache.fluss.benchmark.e2eplatformaws.setup.CreateTableWithBuckets \
      localhost:9123 iot sensor_readings 48 true
 
 if [ $? -eq 0 ]; then
@@ -115,7 +115,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp "${JAR_PATH}" \
-     org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9123 iot 2>/dev/null | grep -q "sensor_readings" && \
+     org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9123 iot 2>/dev/null | grep -q "sensor_readings" && \
      echo -e "${GREEN}✓ Table verified${NC}" || echo -e "${YELLOW}Warning: Could not verify table${NC}"
 echo ""
 
@@ -128,7 +128,7 @@ java --add-opens=java.base/java.util=ALL-UNNAMED \
      --add-opens=java.base/java.nio=ALL-UNNAMED \
      --add-opens=java.base/java.time=ALL-UNNAMED \
      -cp "${JAR_PATH}" \
-     org.apache.fluss.benchmarks.producer.FlussSensorProducerAppMultiInstance \
+     org.apache.fluss.benchmark.e2eplatformaws.producer.FlussSensorProducerAppMultiInstance \
      --bootstrap localhost:9123 \
      --database iot \
      --table sensor_readings \
@@ -153,7 +153,7 @@ if [ ! -d "${FLINK_DIR}" ]; then
     echo "Skipping Flink job. You can run it manually:"
     echo ""
     echo "  ${FLINK_DIR}/bin/flink run \\"
-    echo "    -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \\"
+    echo "    -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \\"
     echo "    ${JAR_PATH} \\"
     echo "    --bootstrap localhost:9123 --database iot --table sensor_readings --window-minutes 1"
     echo ""
@@ -177,7 +177,7 @@ fi
 
 # Submit Flink job
 "${FLINK_DIR}/bin/flink run" \
-    -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+    -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
     "${JAR_PATH}" \
     --bootstrap localhost:9123 \
     --database iot \

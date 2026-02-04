@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.fluss.benchmarks.setup;
+package org.apache.fluss.benchmark.e2eplatformaws.setup;
 
 import org.apache.fluss.client.Connection;
 import org.apache.fluss.client.ConnectionFactory;

@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.apache.fluss.benchmarks.flink;
+package org.apache.fluss.benchmark.e2eplatformaws.flink;
 
-import org.apache.fluss.benchmarks.model.SensorData;
+import org.apache.fluss.benchmark.e2eplatformaws.model.SensorData;
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.configuration.Configuration;
@@ -50,7 +50,7 @@ import java.util.Objects;
 
 /**
  * Flink streaming job that reads the primary-key table written by {@link
- * org.apache.fluss.benchmarks.producer.FlussSensorProducerApp}, performs tumbling-window aggregations, and
+ * org.apache.fluss.benchmark.e2eplatformaws.producer.FlussSensorProducerApp}, performs tumbling-window aggregations, and
  * prints the results. The logic mirrors the Pulsar → Flink → ClickHouse path from the original
  * RealtimeDataPlatform example but uses Fluss as both the source and storage.
  */

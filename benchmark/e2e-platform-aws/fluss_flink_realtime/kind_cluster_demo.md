@@ -89,7 +89,7 @@ kubectl get svc -n default | grep fluss
 
 # Test connectivity (should return metadata)
 java -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9123
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9123
 ```
 
 ## Step 3: Start Local Flink Cluster
@@ -135,7 +135,7 @@ From `/Users/vijayabhaskarv/IOT/FLUSS`, in a **separate terminal**, submit the F
 
 ```bash
 ./flink-1.20.3/bin/flink run \
-  -c org.apache.fluss.benchmarks.flink.FlinkSensorAggregatorJob \
+  -c org.apache.fluss.benchmark.e2eplatformaws.flink.FlinkSensorAggregatorJob \
   demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
   --bootstrap localhost:9123 \
   --database iot \
@@ -176,17 +176,17 @@ grep "SensorAggregate" flink-1.20.3/log/flink-*-taskexecutor-*.log
 ```bash
 # List databases
 java -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussMetadataInspector localhost:9123
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussMetadataInspector localhost:9123
 
 # Peek at change log (while producer is running)
 java --add-opens=java.base/java.nio=ALL-UNNAMED \
   -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussTableLogPeek localhost:9123 iot sensor_readings 10
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussTableLogPeek localhost:9123 iot sensor_readings 10
 
 # Peek at primary-key snapshot
 java --add-opens=java.base/java.nio=ALL-UNNAMED \
   -cp demos/demo/fluss_flink_realtime_demo/target/fluss-flink-realtime-demo.jar \
-  org.apache.fluss.benchmarks.inspect.FlussPrimaryKeySnapshotPeek localhost:9123 iot sensor_readings 10
+  org.apache.fluss.benchmark.e2eplatformaws.inspect.FlussPrimaryKeySnapshotPeek localhost:9123 iot sensor_readings 10
 ```
 
 ### View Fluss Pod Logs
